@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- system splash / status bar 夜间值 —— 跟 day 一致即可（本 app 默认 dark 主题）-->
+    <color name="bg_deep">#0A1628</color>
+    <color name="accent_cyan">#00D4FF</color>
+    <color name="accent_warn">#FF3B30</color>
+</resources>

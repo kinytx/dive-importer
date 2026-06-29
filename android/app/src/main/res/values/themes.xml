@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- 启动前 splash 占位主题。Compose 启动后 ColorScheme 由 DivePlanImporterTheme 接管。
+         windowSplashScreenBackground 跟 DarkPalette.BgDeep / LightPalette.BgDeep 对应。 -->
+    <style name="Theme.DivePlanImporter" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@color/bg_deep</item>
+        <item name="android:navigationBarColor">@color/bg_deep</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+</resources>

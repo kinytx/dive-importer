@@ -1,0 +1,103 @@
+# XcodeGen 配置 —— 单一 SwiftUI 跨平台 App
+#
+# 在 Mac 上首次准备：
+#   brew install xcodegen
+#   cd S:\GMP\dive-importers\apple
+#   xcodegen generate
+#   open DivePlanImporter.xcodeproj
+#
+# 之后改了 project.yml 任意一项（加文件 / 改 plist / 改 entitlements）：
+#   xcodegen generate   # 重新生成 .xcodeproj，原文件直接覆盖
+#
+# 设计要点：
+#   - 单 App target（不是 iOS + macOS 双 target），用 supportedDestinations 同时支持
+#     iPhone / iPad / Mac Native。Apple 现在推荐这种「Multiplatform App」结构（Xcode 14+）。
+#   - 业务 sources 全部在 Sources/DivePlanImporter/ 下，用 #if os(iOS) 分支处理平台差异。
+#   - Info.plist / entitlements 按平台分两套，因为 BLE / camera privacy 文案、entitlements
+#     在 iOS / macOS 上是不同 key。
+
+name: DivePlanImporter
+options:
+  bundleIdPrefix: cn.diveplan
+  createIntermediateGroups: true
+  developmentLanguage: zh-Hans
+  deploymentTarget:
+    iOS: "17.0"
+    macOS: "14.0"
+  groupSortPosition: top
+  generateEmptyDirectories: false
+  defaultConfig: Debug
+
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    SWIFT_STRICT_CONCURRENCY: complete
+    # 真机调试期：CODE_SIGN_STYLE Automatic + 你的 Team ID。Team 暂留空，开发者本地填。
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: ""
+
+targets:
+  DivePlanImporter:
+    type: application
+    supportedDestinations: [iOS, macOS]
+    sources:
+      - path: Sources/DivePlanImporter
+      - path: Resources/Shared/Assets.xcassets
+        type: folder
+      - path: ../shared/device-rules.json
+    settings:
+      base:
+        PRODUCT_NAME: "DivePlan Importer"
+        PRODUCT_BUNDLE_IDENTIFIER: cn.diveplan.importer
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        # 跨平台支持
+        TARGETED_DEVICE_FAMILY: "1,2"          # iPhone + iPad
+        SUPPORTS_MACCATALYST: NO                # 用 Native macOS，不走 Catalyst
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        # 严格 Swift 6 并发检查
+        SWIFT_UPCOMING_FEATURE_BareSlashRegexLiterals: YES
+        SWIFT_UPCOMING_FEATURE_ConciseMagicFile: YES
+        SWIFT_UPCOMING_FEATURE_ForwardTrailingClosures: YES
+        SWIFT_UPCOMING_FEATURE_ImplicitOpenExistentials: YES
+        SWIFT_UPCOMING_FEATURE_StrictConcurrency: YES
+      configs:
+        Debug:
+          ENABLE_PREVIEWS: YES
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          SWIFT_COMPILATION_MODE: wholemodule
+    # 按平台分发 Info.plist + entitlements
+    info:
+      path: Resources/iOS/Info.plist               # iOS Info.plist
+    entitlements:
+      path: Resources/iOS/DivePlanImporter.entitlements
+    platformDependencies:
+      macOS:
+        info:
+          path: Resources/macOS/Info.plist
+        entitlements:
+          path: Resources/macOS/DivePlanImporter.entitlements
+    dependencies:
+      # 业务依赖暂时全用 Apple 内置 framework（CoreBluetooth / AVFoundation / Security / SwiftUI）
+      # P5 加 Network framework / Vision Barcode（Apple 官方，零第三方）
+      []
+
+# 命名规范
+schemes:
+  DivePlanImporter:
+    build:
+      targets:
+        DivePlanImporter: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

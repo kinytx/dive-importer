@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">潜水日志导入</string>
+
+    <!-- BLE / 权限提示文案（P2 用） -->
+    <string name="permission_ble_title">需要蓝牙权限</string>
+    <string name="permission_ble_message">导入潜水日志需要访问蓝牙以连接潜水电脑。我们不会上传位置信息。</string>
+
+    <!-- 账号绑定（P1 用） -->
+    <string name="bind_title">绑定账号</string>
+    <string name="bind_scan_qr">扫描二维码</string>
+    <string name="bind_input_code">输入 6 位绑定码</string>
+
+    <!-- 通用 -->
+    <string name="action_retry">重试</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_ok">好的</string>
+</resources>

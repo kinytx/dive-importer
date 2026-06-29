@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- macOS App Sandbox（App Store 分发必需；非 App Store 也建议开） -->
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+
+    <!-- 蓝牙 -->
+    <key>com.apple.security.device.bluetooth</key>
+    <true/>
+
+    <!-- 相机 -->
+    <key>com.apple.security.device.camera</key>
+    <true/>
+
+    <!-- 出站网络（上传 dump / WSS 到 api.diveplan.cn） -->
+    <key>com.apple.security.network.client</key>
+    <true/>
+
+    <!-- Keychain Sharing -->
+    <key>keychain-access-groups</key>
+    <array>
+        <string>$(AppIdentifierPrefix)cn.diveplan.importer</string>
+    </array>
+</dict>
+</plist>

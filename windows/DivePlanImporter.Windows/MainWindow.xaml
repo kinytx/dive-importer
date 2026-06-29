@@ -1,0 +1,129 @@
+<Window x:Class="DivePlanImporter.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="DivePlan 潜水日志导入助手"
+        Height="720"
+        Width="1040"
+        MinHeight="560"
+        MinWidth="820"
+        Background="#0A1628">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" LastChildFill="False">
+            <StackPanel DockPanel.Dock="Left">
+                <TextBlock Text="DivePlan Importer"
+                           Foreground="#E8F4FD"
+                           FontSize="30"
+                           FontWeight="SemiBold" />
+                <TextBlock Text="Windows 桌面版 · BLE 扫描与设备识别"
+                           Foreground="#8AB4D4"
+                           Margin="0,6,0,0"
+                           FontSize="14" />
+            </StackPanel>
+            <Button x:Name="ScanButton"
+                    DockPanel.Dock="Right"
+                    Width="132"
+                    Height="42"
+                    Margin="16,0,0,0"
+                    Click="ScanButton_Click"
+                    Content="开始扫描" />
+        </DockPanel>
+
+        <Border Grid.Row="1"
+                Margin="0,22,0,16"
+                Padding="16"
+                Background="#0F2040"
+                BorderBrush="#2600D4FF"
+                BorderThickness="1"
+                CornerRadius="8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="账号绑定"
+                               Foreground="#E8F4FD"
+                               FontSize="16"
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="下一步接入 6 位码 / deep link 后，这里会换成真实绑定状态。"
+                               Foreground="#6B8DB0"
+                               Margin="0,6,0,0" />
+                </StackPanel>
+                <TextBox Grid.Column="1"
+                         Width="168"
+                         Height="34"
+                         VerticalContentAlignment="Center"
+                         MaxLength="6"
+                         TextAlignment="Center"
+                         Text="绑定码" />
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2"
+                Background="#0F2040"
+                BorderBrush="#2600D4FF"
+                BorderThickness="1"
+                CornerRadius="8">
+            <ListView x:Name="DevicesList"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      Foreground="#E8F4FD"
+                      Padding="8">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="12"
+                                Margin="0,4"
+                                Background="#0D1F3A"
+                                BorderBrush="#2600D4FF"
+                                BorderThickness="1"
+                                CornerRadius="8">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="120" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}"
+                                               Foreground="#E8F4FD"
+                                               FontSize="16"
+                                               FontWeight="SemiBold" />
+                                    <TextBlock Text="{Binding DisplayModel}"
+                                               Foreground="#00D4FF"
+                                               Margin="0,4,0,0" />
+                                    <TextBlock Text="{Binding Hint}"
+                                               Foreground="#F0A030"
+                                               Margin="0,4,0,0" />
+                                    <TextBlock Text="{Binding Detail}"
+                                               Foreground="#6B8DB0"
+                                               Margin="0,4,0,0"
+                                               FontSize="12" />
+                                </StackPanel>
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding Rssi, StringFormat={}{0} dBm}"
+                                           Foreground="#8AB4D4"
+                                           HorizontalAlignment="Right"
+                                           VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+
+        <TextBlock x:Name="StatusText"
+                   Grid.Row="3"
+                   Margin="0,14,0,0"
+                   Foreground="#8AB4D4"
+                   Text="准备就绪" />
+    </Grid>
+</Window>

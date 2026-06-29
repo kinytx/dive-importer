@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "serviceUuidHints": [
+    { "vendor": "Shearwater", "uuids": ["FE25C237-0ECE-443C-B0AA-E02033E7029D"] },
+    { "vendor": "Garmin", "uuids": ["6A4E2800-667B-11E3-949A-0800200C9A66"], "weak": true }
+  ],
+  "deviceNamePatterns": [
+    {
+      "pattern": "^(?:Garmin\\s*)?Descent\\s*Mk\\d+(?:i)?\\s*(?:\\d+mm)?\\b",
+      "vendor": "Garmin",
+      "product": "Descent Mk",
+      "weak": true,
+      "hint": "Garmin Descent Mk 系列走 Garmin Sidecar 通道"
+    },
+    {
+      "pattern": "^(?:Garmin\\s*)?Descent\\s*G[12]\\b",
+      "vendor": "Garmin",
+      "product": "Descent",
+      "weak": true,
+      "hint": "Garmin Descent G 系列走 Garmin Sidecar 通道"
+    },
+    {
+      "pattern": "^(?:Garmin\\s*)?(?:Descent\\s*)?X50i\\b",
+      "vendor": "Garmin",
+      "product": "X50i",
+      "weak": true,
+      "hint": "Garmin X50i 走 Garmin Sidecar 通道"
+    },
+    {
+      "pattern": "^(?:Garmin\\s*)?(?:Descent\\s*)?X30\\b",
+      "vendor": "Garmin",
+      "product": "X30",
+      "weak": true,
+      "hint": "Garmin X30 走 Garmin Sidecar 通道"
+    },
+    {
+      "pattern": "^(?:Garmin\\s*)?Descent\\b",
+      "vendor": "Garmin",
+      "product": "Descent",
+      "ambiguous": true,
+      "weak": true,
+      "hint": "仅识别到 Garmin Descent 系列，需确认型号"
+    },
+    { "pattern": "^Petrel\\s*3\\b", "vendor": "Shearwater", "product": "Petrel 3" },
+    { "pattern": "^Petrel\\s*2\\b", "vendor": "Shearwater", "product": "Petrel 2" },
+    {
+      "pattern": "^Petrel\\b",
+      "vendor": "Shearwater",
+      "product": "Petrel 2",
+      "ambiguous": true,
+      "hint": "Petrel 系列默认按 Petrel 2 协议"
+    },
+    { "pattern": "^Perdix\\s*2\\b", "vendor": "Shearwater", "product": "Perdix 2" },
+    { "pattern": "^Perdix\\s*AI\\b", "vendor": "Shearwater", "product": "Perdix AI" },
+    {
+      "pattern": "^Perdix\\b",
+      "vendor": "Shearwater",
+      "product": "Perdix",
+      "ambiguous": true,
+      "hint": "Perdix 系列默认按 Perdix 协议"
+    },
+    { "pattern": "^Teric\\b", "vendor": "Shearwater", "product": "Teric" },
+    { "pattern": "^Peregrine\\b", "vendor": "Shearwater", "product": "Peregrine" },
+    { "pattern": "^Nerd\\s*2\\b", "vendor": "Shearwater", "product": "Nerd 2" },
+    { "pattern": "^Nerd\\b", "vendor": "Shearwater", "product": "Nerd" },
+    { "pattern": "^EON\\s*Steel\\s*Black\\b", "vendor": "Suunto", "product": "EON Steel Black" },
+    { "pattern": "^EON\\s*Steel\\b", "vendor": "Suunto", "product": "EON Steel" },
+    { "pattern": "^EON\\s*Core\\b", "vendor": "Suunto", "product": "EON Core" },
+    { "pattern": "^(?:Suunto\\s*)?D5\\b", "vendor": "Suunto", "product": "D5" },
+    { "pattern": "^G2\\b", "vendor": "Scubapro", "product": "G2" },
+    { "pattern": "^Aladin\\s*A1\\b", "vendor": "Scubapro", "product": "Aladin A1" },
+    { "pattern": "^Aladin\\s*A2\\b", "vendor": "Scubapro", "product": "Aladin A2" },
+    { "pattern": "^Genius\\b", "vendor": "Mares", "product": "Genius" },
+    { "pattern": "^Quad\\s*Air\\b", "vendor": "Mares", "product": "Quad Air" },
+    { "pattern": "^Quad\\b", "vendor": "Mares", "product": "Quad" },
+    { "pattern": "^Puck\\s*Pro\\b", "vendor": "Mares", "product": "Puck Pro" },
+    {
+      "pattern": "^Smart\\b",
+      "vendor": "Mares",
+      "product": "Smart",
+      "ambiguous": true,
+      "hint": "Smart / Smart Air / Smart Apnea 共用广播名"
+    },
+    { "pattern": "^i770R\\b", "vendor": "Aqualung", "product": "i770R" },
+    { "pattern": "^i750TC\\b", "vendor": "Aqualung", "product": "i750TC" },
+    { "pattern": "^i550C\\b", "vendor": "Aqualung", "product": "i550C" },
+    { "pattern": "^i470TC\\b", "vendor": "Aqualung", "product": "i470TC" },
+    { "pattern": "^i300C\\b", "vendor": "Aqualung", "product": "i300C" },
+    { "pattern": "^OSTC\\s*Plus\\b", "vendor": "Heinrichs Weikamp", "product": "OSTC Plus" },
+    { "pattern": "^OSTC\\s*4\\b", "vendor": "Heinrichs Weikamp", "product": "OSTC 4" },
+    { "pattern": "^OSTC\\s*Sport\\b", "vendor": "Heinrichs Weikamp", "product": "OSTC Sport" },
+    { "pattern": "^OSTC\\s*2\\b", "vendor": "Heinrichs Weikamp", "product": "OSTC 2" }
+  ]
+}

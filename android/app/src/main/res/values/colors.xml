@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 仅供 system splash / status bar 用；Compose 内部统一从 MaterialTheme.colorScheme 取色 -->
+    <color name="bg_deep">#0A1628</color>
+    <color name="accent_cyan">#00D4FF</color>
+    <color name="accent_warn">#FF3B30</color>
+</resources>

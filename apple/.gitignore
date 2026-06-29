@@ -1,0 +1,26 @@
+# XcodeGen 生成产物（每次 xcodegen 都会重写，不需要 commit）
+*.xcodeproj/
+*.xcworkspace/
+
+# Xcode 本地状态
+xcuserdata/
+*.xcuserstate
+.DS_Store
+
+# 派生数据
+DerivedData/
+build/
+.build/
+
+# Swift Package
+.swiftpm/
+Package.resolved
+
+# 签名 / 配置
+*.p12
+*.mobileprovision
+*.provisionprofile
+
+# 调试 / IDE
+.idea/
+*.swp

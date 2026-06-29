@@ -1,0 +1,43 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.iml
+*.swp
+
+# Android / Gradle
+android/.gradle/
+android/**/build/
+android/out/
+android/local.properties
+android/.kotlin/
+android/.externalNativeBuild/
+android/.cxx/
+*.apk
+*.aab
+*.dex
+
+# Apple / Xcode
+apple/*.xcodeproj/
+apple/*.xcworkspace/
+apple/xcuserdata/
+apple/*.xcuserstate
+apple/DerivedData/
+apple/build/
+apple/.build/
+apple/.swiftpm/
+apple/Package.resolved
+*.p12
+*.mobileprovision
+*.provisionprofile
+
+# Windows / .NET
+windows/**/bin/
+windows/**/obj/
+windows/artifacts/
+
+# Logs and local output
+*.log
+captures/

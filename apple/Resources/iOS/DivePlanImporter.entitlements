@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- iOS App Sandbox 默认不开（iOS app 都是 sandboxed），entitlements 仅声明能力 -->
+    <!-- Keychain Sharing：跟潜在的同账号 mac app 共享 ApiKey（可选） -->
+    <key>keychain-access-groups</key>
+    <array>
+        <string>$(AppIdentifierPrefix)cn.diveplan.importer</string>
+    </array>
+</dict>
+</plist>

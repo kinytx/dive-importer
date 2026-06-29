@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>zh-Hans</string>
+    <key>CFBundleDisplayName</key>
+    <string>潜水日志导入</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(MARKETING_VERSION)</string>
+    <key>CFBundleVersion</key>
+    <string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+
+    <!-- 蓝牙：CBCentralManager 实例化时系统会弹这条提示 -->
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>用于连接潜水电脑表读取潜水日志。本 App 不会上传你的位置信息。</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>用于连接潜水电脑表读取潜水日志。本 App 不会上传你的位置信息。</string>
+
+    <!-- 相机：扫描小程序生成的绑定二维码 -->
+    <key>NSCameraUsageDescription</key>
+    <string>用于扫描小程序生成的账号绑定二维码（仅识别码，不存图）。</string>
+
+    <!-- 后台执行（BLE 抓 dump 时锁屏继续） -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>bluetooth-central</string>
+    </array>
+
+    <!-- Universal link / Custom URL scheme：diveplan://ble-probe/bind?code=xxxxxx -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>cn.diveplan.importer.bindcode</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>diveplan</string>
+            </array>
+        </dict>
+    </array>
+
+    <key>UILaunchStoryboardName</key>
+    <string></string>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+</dict>
+</plist>
