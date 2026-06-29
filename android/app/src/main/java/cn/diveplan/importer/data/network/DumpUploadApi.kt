@@ -7,7 +7,6 @@ import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 /**
@@ -87,9 +86,9 @@ internal class DumpUploadApiImpl(
                 file.name,
                 file.asRequestBody("application/octet-stream".toMediaTypeOrNull()),
             )
-            .addFormDataPart("deviceAddress", deviceAddress.toRequestBody())
-            .addFormDataPart("deviceName", deviceName.toRequestBody())
-            .addFormDataPart("capturedAt", capturedAt.toRequestBody())
+            .addFormDataPart("deviceAddress", deviceAddress)
+            .addFormDataPart("deviceName", deviceName)
+            .addFormDataPart("capturedAt", capturedAt)
             .build()
 
         val req = Request.Builder()
@@ -128,9 +127,9 @@ internal class DumpUploadApiImpl(
                 file.name,
                 file.asRequestBody("application/octet-stream".toMediaTypeOrNull()),
             )
-            .addFormDataPart("deviceAddress", deviceAddress.toRequestBody())
-            .addFormDataPart("deviceName", deviceName.toRequestBody())
-            .addFormDataPart("capturedAt", capturedAt.toRequestBody())
+            .addFormDataPart("deviceAddress", deviceAddress)
+            .addFormDataPart("deviceName", deviceName)
+            .addFormDataPart("capturedAt", capturedAt)
             .build()
 
         val req = Request.Builder()
@@ -153,7 +152,4 @@ internal class DumpUploadApiImpl(
             return respAdapter.fromJson(body) ?: DumpParseResp()
         }
     }
-
-    private fun String.toRequestBody() =
-        this.toRequestBody("text/plain".toMediaTypeOrNull())
 }

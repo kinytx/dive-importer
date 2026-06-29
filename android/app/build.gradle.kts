@@ -17,6 +17,12 @@ android {
     namespace = "cn.diveplan.importer"
     compileSdk = 36
 
+    sourceSets {
+        getByName("main") {
+            java.setSrcDirs(listOf("src/main/java"))
+        }
+    }
+
     defaultConfig {
         applicationId = "cn.diveplan.importer"
         minSdk = 26              // BLE_SCAN / BLE_CONNECT 权限模型从 12 开始（API 31），但 26 起兜底走旧 BLUETOOTH_* 也支持
@@ -60,6 +66,14 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1,DEPENDENCIES,LICENSE,LICENSE.txt,NOTICE,NOTICE.txt}"
+        }
+    }
+}
+
+kotlin {
+    sourceSets {
+        named("main") {
+            kotlin.setSrcDirs(listOf("src/main/java"))
         }
     }
 }

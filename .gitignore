@@ -15,6 +15,7 @@ android/local.properties
 android/.kotlin/
 android/.externalNativeBuild/
 android/.cxx/
+android/app/src/main/kotlin/
 *.apk
 *.aab
 *.dex
